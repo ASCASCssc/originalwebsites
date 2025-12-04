@@ -68,6 +68,9 @@
         margin-left: 5px;
         line-height: 1.6;
     }
+    .Info.InfoTimes {
+        font-family: 'Times New Roman', Times, serif;
+    }
     #InfoImage2 {
         object-fit: cover;
         width: 45%;
@@ -85,7 +88,7 @@
     #Fontsizebox {
         position: fixed;
         width: 90px;
-        height: 144px;
+        height: 177px;
         top: 14px;
         right: 14px;
         background-color: #F8F8F8;
@@ -112,19 +115,20 @@
             <button class="Button Fontsize" style="top: 45px;" onclick="FontPlus()">+ Font</button>
             <button class="Button Fontsize" style="top: 80px;" onclick="FontMinus()">- Font</button>
             <button class="Button Fontsize" style="top: 115px;" onclick="FontZero()">= Font</button>
+            <button class="Button Fontsize" style="top: 150px; padding-left: 16px; padding-right: 16px;" onclick="FontTimes()">Font</button>
         </div>    
     </div>
     <p id="InformationInfo" class="Info" style="margin-left: 6px; display: block;">This webpage was created as an educational purpose from social studies summative assignment. The main topic is The Triangular Trade System. In this webpage, informations can be unfolded and read by clicking on the titles below the index section. Font sizes of Informations inside Index and Info can be adjusted by clicking the buttons placed at top-right of the screen. Informations and some of the features can be controlled by keyboard shortcuts. Below are the list of keyboard shortcuts available in this webpage:</p>
     <ul id="InformationInfoKeys" style="display: block;">
-        <li class="Info">"1" - Toggle "What is triangular trade?" information</li>
-        <li class="Info">"2" - Toggle "How was the route like?" information</li>
-        <li class="Info">"3" - Toggle "Things spread around the world" information</li>
-        <li class="Info">"A" - Toggle appearance</li>
-        <li class="Info">"G" - Toggle Grid</li>
+        <li class="Info">1 - Toggle "What is triangular trade?" information</li>
+        <li class="Info">2 - Toggle "How was the route like?" information</li>
+        <li class="Info">3 - Toggle "Things spread around the world" information</li>
+        <li class="Info">A - Toggle appearance</li>
+        <li class="Info">G - Toggle Grid</li>
     </ul>
     <br>
     <div id="Body">
-        <h3>| <em>INDEX</em> |</h3>
+        <h3>| INDEX |</h3>
         <ol>
             <li>
                 <button class="Button" onclick="Show1()">What is triangular trade?</button>
@@ -209,6 +213,13 @@
             for (let i = 0; i < body.length; i++) {
                 body[i].style.fontSize = "14px";
             }
+        }
+        function FontTimes() {
+            const info = document.getElementsByClassName("Info");
+            for (let i = 0; i < info.length; i++) {
+                info[i].classList.toggle("InfoTimes");
+            }
+            return;
         }
         function ToggleAppearance() {
             const buttonGrid = document.getElementById("ToggleGrid");
