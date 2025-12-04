@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="サイトのタイトル">
+    <meta property="og:description" content="サイトの説明文">
+    <meta property="og:image" content="url(images/Banner3.jpeg)">
+    <title>Triangular trade</title>
+</head>
+<style>
+    body {
+        font-family: monospace;
+        background-color: #fff;
+    }
+    #Banner {
+        width: 99%;
+        height: 250px;
+        object-fit: cover;
+        border: 5px solid black;
+    }
+    #Title {
+        margin-left: 5px;
+        display: inline-block;
+    }
+    #Body {
+        margin-left: 5px;
+        display: inline-block;
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    .Button {
+        font-family: monospace;
+        font-size: 13px;
+        background-color: #1e89f2;
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin: 5px;
+        cursor: pointer;
+        box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+        transition: transform 0.1s ease;
+    }
+    .Button.dark-mode {
+        background-color: #ff4013;
+        color: #000000;
+    }
+    .Button.Button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    }
+    #Appearance {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #ToggleGrid {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .Info {
+        font-family: monospace;
+        font-size: 14px;
+        margin-right: 50px;
+        margin-left: 5px;
+        line-height: 1.6;
+    }
+    #InfoImage2 {
+        object-fit: cover;
+        width: 45%;
+        height: auto;
+        border: 4px solid black;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+        margin-right: 8px;
+    }
+    .Fontsize {
+        position: fixed;
+        right: 22px;
+    }
+    #Fontsizebox {
+        position: fixed;
+        width: 90px;
+        height: 144px;
+        top: 14px;
+        right: 14px;
+        background-color: #F8F8F8;
+        border-radius: 14px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    }
+    #Fontsizebox.dark-mode {
+        background-color: #55595f;
+    }
+</style>
+<body">
+    <img src="images/Banner3.jpeg" alt="Banner Image" id="Banner">
+    <div id="Title">
+        <h1>The Triangular Trade System</h1>
+        <h3><em>Social studies - Yuki Nakajima</em></h3>
+    </div>
+    <br>
+    <div style="display: flex; margin-top: 30px; margin-bottom: 30px;">
+        <button id="Appearance" class="Button" onclick="ToggleAppearance()">DARK MODE</button>
+        <button id="ToggleGrid" class="Button" onclick="ToggleGrid()" style="margin-right: 15px;">GRID</button>
+        <button id="Information" class="Button" onclick="ShowInformation()">INFO</button>
+        <div id="Fontsizebox">
+            <h3 class="Fontsize" style="top: 10px; right: 38px;">Font</h3>
+            <button class="Button Fontsize" style="top: 45px;" onclick="FontPlus()">+ Font</button>
+            <button class="Button Fontsize" style="top: 80px;" onclick="FontMinus()">- Font</button>
+            <button class="Button Fontsize" style="top: 115px;" onclick="FontZero()">= Font</button>
+        </div>    
+    </div>
+    <p id="InformationInfo" class="Info" style="margin-left: 6px; display: block;">This webpage was created as an educational purpose from social studies summative assignment. The main topic is The Triangular Trade System. In this webpage, informations can be unfolded and read by clicking on the titles below the index section. Font sizes of Informations inside Index and Info can be adjusted by clicking the buttons placed at top-right of the screen. Informations and some of the features can be controlled by keyboard shortcuts. Below are the list of keyboard shortcuts available in this webpage:</p>
+    <ul id="InformationInfoKeys" style="display: block;">
+        <li class="Info">"1" - Toggle "What is triangular trade?" information</li>
+        <li class="Info">"2" - Toggle "How was the route like?" information</li>
+        <li class="Info">"3" - Toggle "Things spread around the world" information</li>
+        <li class="Info">"A" - Toggle appearance</li>
+        <li class="Info">"G" - Toggle Grid</li>
+    </ul>
+    <br>
+    <div id="Body">
+        <h3>| <em>INDEX</em> |</h3>
+        <ol>
+            <li>
+                <button class="Button" onclick="Show1()">What is triangular trade?</button>
+                <div id="Info1" style="display: none;">
+                    <h3 class="Info">What is Triangular Trade?</h3>
+                    <p class="Info">The triangular trade system was a triangular trade route used by the Europians in the 16th century. The route was between Europe, Africa and America, which formed a triangle from the top view. The direction was Europe, Africa, America, then back to Europe.</p>
+                </div>
+            </li>
+            <li>
+                <button class="Button" onclick="Show2()">How was the route like?</button>
+                <div id="Info2" style="display: none;">
+                    <h3 class="Info">How was the route like?</h3>
+                    <div style="display: flex;">
+                        <img id="InfoImage2" src="images/Banner1.jpeg" alt="Triangular Trade System Image">
+                        <p class="Info">In the trade route, materials, goods, and people were transported along the triangle. Some materials and goods were carried from Europe to Africa, slaves were transferred from Africa to America, and raw materials were moved to Europe from America.</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <button class="Button" onclick="Show3()">Things spread around the world</button>
+                <div id="Info3" style="display: none;">
+                    <h3 class="Info">Things spread around the world</h3>
+                    <p class="Info">In the triangular trade system, many things were spread to the New World from the Old World.<br>Some of the things spread from the Old World were wheat, sugar, rice, coffee, horses, cows, pigs, sheep, chickens, and diseases such as smallpox and measles.<br>Things spread from the New World to Old World were </p>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <script>
+        function Show1() {
+            const info = document.getElementById("Info1");
+            if (info.style.display === "none") {
+                info.style.display = "block";
+            } else {
+                info.style.display = "none";
+            }
+        }
+        function Show2() {
+            const info = document.getElementById("Info2");
+            if (info.style.display === "none") {
+                info.style.display = "block";
+            } else {
+                info.style.display = "none";
+            }
+        }
+        function Show3() {
+            const info = document.getElementById("Info3");
+            if (info.style.display === "none") {
+                info.style.display = "block";
+            } else {
+                info.style.display = "none";
+            }
+        }
+        function ShowInformation() {
+            const info = document.getElementById("InformationInfo");
+            const infoKeys = document.getElementById("InformationInfoKeys");
+            if (info.style.display === "none") {
+                info.style.display = "block";
+                infoKeys.style.display = "block";
+            } else {
+                info.style.display = "none";
+                infoKeys.style.display = "none";
+            }
+        }
+        function FontPlus() {
+            const body = document.getElementsByClassName("Info");
+            for (let i = 0; i < body.length; i++) {
+                const currentSize = window.getComputedStyle(body[i]).fontSize;
+                const newSize = parseFloat(currentSize) + 2;
+                body[i].style.fontSize = newSize + "px";
+            }
+        }
+        function FontMinus() {
+            const body = document.getElementsByClassName("Info");
+            for (let i = 0; i < body.length; i++) {
+                const currentSize = window.getComputedStyle(body[i]).fontSize;
+                const newSize = parseFloat(currentSize) - 2;
+                body[i].style.fontSize = newSize + "px";
+            }
+        }
+        function FontZero() {
+            const body = document.getElementsByClassName("Info");
+            for (let i = 0; i < body.length; i++) {
+                body[i].style.fontSize = "14px";
+            }
+        }
+        function ToggleAppearance() {
+            const buttonGrid = document.getElementById("ToggleGrid");
+            if (buttonGrid.textContent === "BLANK") {
+                alert("Appearance toggle is unavailable while grid");
+            } else {
+                const body = document.body;
+                const button = document.getElementById("Appearance");
+                if (body.style.backgroundColor === "rgb(58, 61, 68)") {
+                    body.style.backgroundColor = "#fff";
+                    body.style.color = "#000";
+                    button.textContent = "DARK MODE";
+                } else {
+                    body.style.backgroundColor = "#3a3d44";
+                    body.style.color = "#fff";
+                    button.textContent = "LIGHT MODE";
+                }
+                const buttons = document.querySelectorAll(".Button");
+                buttons.forEach(btn => btn.classList.toggle("dark-mode"));
+                const fontsizeBox = document.getElementById("Fontsizebox");
+                fontsizeBox.classList.toggle("dark-mode");
+            }
+        }
+        function ToggleGrid() {
+            const button = document.getElementById("Appearance");
+            if (button.textContent === "LIGHT MODE") {
+                alert("Grid toggle is unavailable while dark mode");
+                return;
+            } else {
+                const body = document.body;
+                const buttonGrid = document.getElementById("ToggleGrid");
+                if (body.style.backgroundImage) {
+                    body.style.backgroundImage = "";
+                    buttonGrid.textContent = "GRID";
+                } else {
+                    body.style.backgroundImage = "url(images/Banner4.png)";
+                    buttonGrid.textContent = "BLANK";
+                }
+            }
+        }
+        document.addEventListener("keydown", function(event) {
+            console.log("Keycode:", event.code);
+            console.log("PressedKey:", event.key);
+
+            if (event.key === "1") {
+                Show1();
+            }
+            if (event.key === "2") {
+                Show2();
+            }
+            if (event.key === "3") {
+                Show3();
+            }
+            if (event.key.toLowerCase() === "a") {
+                ToggleAppearance();
+            }
+            if (event.key.toLowerCase() === "g") {
+                ToggleGrid();
+            }
+        });
+    </script>
+</body>
+</html>
