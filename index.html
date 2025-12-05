@@ -13,6 +13,10 @@
         font-family: monospace;
         background-color: #fff;
     }
+    body.dark-mode {
+        background-color: #424242;
+        color: #fff;
+    }
     #Banner {
         width: 99%;
         height: 250px;
@@ -46,8 +50,9 @@
         transition: transform 0.1s ease;
     }
     .Button.dark-mode {
-        background-color: #ff4013;
-        color: #000000;
+        background-color: transparent;
+        border: 2px solid #ffffff;
+        color: #fff;
     }
     .Button.Button:hover {
         transform: translateY(-2px);
@@ -256,13 +261,10 @@
             } else {
                 const body = document.body;
                 const button = document.getElementById("Appearance");
-                if (body.style.backgroundColor === "rgb(58, 61, 68)") {
-                    body.style.backgroundColor = "#fff";
-                    body.style.color = "#000";
+                body.classList.toggle("dark-mode");
+                if (button.textContent === "LIGHT MODE") {
                     button.textContent = "DARK MODE";
                 } else {
-                    body.style.backgroundColor = "#3a3d44";
-                    body.style.color = "#fff";
                     button.textContent = "LIGHT MODE";
                 }
                 const buttons = document.querySelectorAll(".Button");
