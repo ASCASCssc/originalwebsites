@@ -14,14 +14,16 @@
         background-color: #fff;
     }
     body.dark-mode {
-        background-color: #212121;
-        color: #fff;
+        background-color: #1a1a1a;
+        color: #e5e5e5;
     }
     #Banner {
         width: 99%;
         height: 250px;
         object-fit: cover;
         border: 5px solid black;
+        border-radius: 12px;
+        box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
     }
     #Title {
         margin-left: 5px;
@@ -45,14 +47,15 @@
         padding-left: 8px;
         padding-right: 8px;
         margin: 5px;
+        margin-bottom: 10px;
         cursor: pointer;
         box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
         transition: transform 0.1s ease;
     }
     .Button.dark-mode {
         background-color: transparent;
-        border: 2px solid #ffffff;
-        color: #fff;
+        border: 2px solid #e5e5e5;
+        color: #e5e5e5;
     }
     .Button.Button:hover {
         transform: translateY(-2px);
@@ -79,7 +82,7 @@
         line-height: 1.6;
     }
     .Info.InfoTimes {
-        font-family: 'Times New Roman', Times, serif;
+        font-family: system-ui;
     }
     #InfoImage2 {
         object-fit: cover;
@@ -108,140 +111,140 @@
     #Fontsizebox.dark-mode {
         background-color: rgba(0, 0, 0, 0.2);
     }
+    .Container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 20px;
+    }
+    .Collapse {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, opacity 0.35s ease;
+        opacity: 0;
+    }
+
+    .Collapse.open {
+        max-height: 800px; /* enough for large sections */
+        opacity: 1;
+    }
 </style>
-<body">
-    <img src="images/Banner3.jpeg" alt="Banner Image" id="Banner">
-    <div id="Title">
-        <h1>The Triangular Trade System</h1>
-        <h3><em>Social studies - Yuki Nakajima</em></h3>
-    </div>
-    <br>
-    <div style="display: flex; margin-top: 30px; margin-bottom: 30px;">
-        <button id="Appearance" class="Button" onclick="ToggleAppearance()">DARK MODE</button>
-        <button id="ToggleGrid" class="Button" onclick="ToggleGrid()" style="margin-right: 15px;">GRID</button>
-        <button id="Information" class="Button" onclick="ShowInformation()">INFO</button>
-        <div id="Fontsizebox">
-            <h3 class="Fontsize" style="top: 10px; right: 38px;">Font</h3>
-            <button class="Button Fontsize" style="top: 45px;" onclick="FontPlus()">+ Font</button>
-            <button class="Button Fontsize" style="top: 80px;" onclick="FontMinus()">- Font</button>
-            <button class="Button Fontsize" style="top: 115px;" onclick="FontZero()">= Font</button>
-            <button class="Button Fontsize" style="top: 150px; padding-left: 16px; padding-right: 16px;" onclick="FontTimes()">Font</button>
-        </div>    
-    </div>
-    <p id="InformationInfo" class="Info" style="margin-left: 6px; display: block;">This webpage was created as an educational purpose from social studies summative assignment. This page was written and constructed by HTML, CSS, and JS (from VSCODE). The main topic is The Triangular Trade System.<br>In this webpage, informations can be unfolded and read by clicking on the titles below the index section. Font sizes and Font types of Informations inside Index and Info can be adjusted by clicking the buttons placed at top-right of the screen. Informations and some of the features can be controlled by keyboard shortcuts, and below are the list of keyboard shortcuts available in this webpage:</p>
-    <ul id="InformationInfoKeys" style="display: block;">
-        <li class="Info">1 - Toggle "What is triangular trade?" information</li>
-        <li class="Info">2 - Toggle "System of the route" information</li>
-        <li class="Info">3 - Toggle "Things spread around the world" information</li>
-        <li class="Info">4 - Toggle "Triangular trade conclusion" information</li>
-        <li class="Info">A - Toggle appearance</li>
-        <li class="Info">G - Toggle Grid</li>
-    </ul>
-    <br>
-    <div id="Body">
-        <h3>| INDEX |</h3>
-        <ol>
-            <li>
-                <button class="Button Index" onclick="Show1()">What is triangular trade?</button>
-                <div id="Info1" style="display: none;">
-                    <h3 class="Info">What is Triangular Trade?</h3>
-                    <p class="Info">The triangular trade system was a triangle shaped trade route used by the Europians in the 16th century. The route was between Europe, Africa and America, which formed a triangle from the top view. The direction was Europe, Africa, America, then back to Europe.</p>
-                </div>
-            </li>
-            <li>
-                <button class="Button Index" onclick="Show2()">System of the route</button>
-                <div id="Info2" style="display: none;">
-                    <h3 class="Info">System of the route</h3>
-                    <div style="display: flex;">
-                        <img id="InfoImage2" src="images/Banner1.jpeg" alt="Triangular Trade System Image">
-                        <p class="Info">A system is a multiple section and parts that make up a specific flow or function. The triangular trade system is also an example of a system, formed by European colonizers, Slaves, Materials, Goods, Old World, and New World.<br>In the trade route system, goods, materials, people, diseases, animals, and plants were transported along the triangle. Some materials and goods were carried from Europe to Africa, slaves were transferred from Africa to America, and raw materials were moved to Europe from America.</p>
+<body>
+    <div class="Container">
+        <img src="images/Banner3.jpeg" alt="Banner Image" id="Banner">
+        <div id="Title">
+            <h1>The Triangular Trade System</h1>
+            <h3><em>Social studies - Yuki Nakajima</em></h3>
+        </div>
+        <br>
+        <div style="display: flex; margin-top: 30px; margin-bottom: 30px;">
+            <button id="Appearance" class="Button" onclick="ToggleAppearance()">DARK MODE</button>
+            <button id="ToggleGrid" class="Button" onclick="ToggleGrid()" style="margin-right: 15px;">GRID</button>
+            <button id="Information" class="Button" onclick="ShowInformation()">INFO</button>
+            <div id="Fontsizebox">
+                <h3 class="Fontsize" style="top: 10px; right: 38px;">Font</h3>
+                <button class="Button Fontsize" style="top: 45px;" onclick="FontPlus()">+ Font</button>
+                <button class="Button Fontsize" style="top: 80px;" onclick="FontMinus()">- Font</button>
+                <button class="Button Fontsize" style="top: 115px;" onclick="FontZero()">= Font</button>
+                <button class="Button Fontsize" style="top: 150px; padding-left: 16px; padding-right: 16px;" onclick="FontTimes()">Font</button>
+            </div>    
+        </div>
+        <p id="InformationInfo" class="Info" style="margin-left: 6px; display: block;">This webpage was created as an educational purpose from social studies summative assignment. This page was written and constructed by HTML, CSS, and JS (from VSCODE). The main topic is The Triangular Trade System.<br>In this webpage, information can be unfolded and read by clicking on the titles below the index section. Font sizes and Font types of Informations inside Index and Info can be adjusted by clicking the buttons placed at top-right of the screen. Informations and some of the features can be controlled by keyboard shortcuts, and below are the list of keyboard shortcuts available in this webpage:</p>
+        <ul id="InformationInfoKeys" style="display: block;">
+            <li class="Info">1 - Toggle "What is triangular trade?" information</li>
+            <li class="Info">2 - Toggle "System of the route" information</li>
+            <li class="Info">3 - Toggle "Things spread around the world" information</li>
+            <li class="Info">4 - Toggle "Triangular trade conclusion" information</li>
+            <li class="Info">A - Toggle appearance</li>
+            <li class="Info">G - Toggle Grid</li>
+        </ul>
+        <br>
+        <div id="Body">
+            <h3>| INDEX |</h3>
+            <ol>
+                <li>
+                    <button class="Button Index" onclick="Show1()">What is triangular trade?</button>
+                    <div id="Info1" class="Collapse">
+                        <h3 class="Info">What is Triangular Trade?</h3>
+                        <p class="Info">The triangular trade system was a triangle shaped trade route used by the Europeans in the 16th century. The route was between Europe, Africa and America, forming a triangular shape when viewed on map. The direction was Europe, Africa, America, then back to Europe.</p>
                     </div>
-                </div>
-            </li>
-            <li>
-                <button class="Button Index" onclick="Show3()">Things spread around the world</button>
-                <div id="Info3" style="display: none;">
-                    <h3 class="Info">Things spread around the world</h3>
-                    <p class="Info">In the triangular trade system, many things were spread to the New World from the Old World, Old World to the New World.<br>Some of the things spread from the Old World to New World were wheat, sugar, rice, coffee, horses, cows, pigs, sheep, chickens, and diseases such as smallpox and measles.<br>Things spread from the New World to Old World were potatoes, tomatoes, peppers, tobaccos and other raw materials.</p>
-                </div>
-            </li>
-            <li>
-                <button class="Button Index" onclick="Show4()">Triangular trade conclusion</button>
-                <div id="Info4" style="display: none;">
-                    <h3 class="Info">Conclusion</h3>
-                    <p class="Info">In conclusion, the triangular trade system was a significant trade route in the 16th century that connected Europe, Africa, and America. It developed the trade of goods, materials, people, diseases, animals, and plants.<br>Lastly, I am thinking that this system was fair. It is because I am thinking that the cycle and functionality of the route is well made. However, slavery in current value can be unfair. In terms of developement, it helped the advance of America and Old World by spread of materials and people.</p>
-                    <h3 class="Info">Mini Informations</h3>
-                    <ol>
-                        <li>
-                            <button class="Button Index" onclick="ShowMini1()">Smallpox and Measles</button>
-                            <div id="MiniInfo1" style="display: none;">
-                                <h3 class="Info">Smallpox and Measles</h3>
-                                <p class="Info">Smallpox and measles were two of the most popular diseases brought to the New World in 16th century, and it largly affected the population of indigenous people. Smallpox were very easy to spread and were fatal, causing large decrease of Native Americans. The spread of smallpox and measles is one of the worst consequences of colonization of America. Now, smallpox were eradicated in 1980 by WHO, while measles still exist.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <button class="Button Index" onclick="ShowMini2()">Sugar Profit</button>
-                            <div id="MiniInfo2" style="display: none;">
-                                <h3 class="Info">Sugar Profit</h3>
-                                <p class="Info">Sugar was one of the most profitable goods in the triangular trade system. It was produced in America by slaves, and transported to Europe. In Europe, sugar was highly popular which made huge profit for the Europeans, and it was one of the largest reasons for the continuation of the triangular trade.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <button class="Button Index" onclick="ShowMini3()">African Slaves</button>
-                            <div id="MiniInfo3" style="display: none;">
-                                <h3 class="Info">African Slaves</h3>
-                                <p class="Info">Triangular trade transported slaves to America which supported the developement of the slave trade. They were captured and enslaved in Africa and transported to America, and they were forced to work in plantations and mines.</p>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
-            </li>
-        </ol>
-    </div>
-    <div id="Reference">
-        <h3>| References |</h3>
-        <p>(Some contents were from the social studies worksheets)</p>
-        <ol>
-            <li><p class="Info">The Editors of Encyclopaedia Britannica. (2020). Triangular trade | economics | Britannica. In Encyclopædia Britannica. https://www.britannica.com/topic/triangular-trade</p></li>
-            <li><p class="Info">The Triangular Trade. (2019, February 21). American Battlefield Trust. https://www.battlefields.org/learn/articles/triangular-trade</p></li>
-            <li><p class="Info">Fiveable. (2025). Triangular trade. Fiveable. https://fiveable.me/archaeology-of-the-age-of-exploration/unit-6/triangular-trade/study-guide/vJrjU6mxlBdkbqZA</p></li>
-            <li><p class="Info">Packer, E. (2021, September 3). Transatlantic slave trade introduced novel pathogenic viruses in the Americas. ELife. https://elifesciences.org/for-the-press/8f863cb7/transatlantic-slave-trade-introduced-novel-pathogenic-viruses-in-the-americas</p></li>
-            <li><p class="Info">Wikipedia Contributors. (2019, March 19). Triangular trade. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Triangular_trade</p></li>
-        </ol>
+                </li>
+                <li>
+                    <button class="Button Index" onclick="Show2()">System of the route</button>
+                    <div id="Info2" class="Collapse">
+                        <h3 class="Info">System of the route</h3>
+                        <div style="display: flex;">
+                            <img id="InfoImage2" src="images/Banner1.jpeg" alt="Triangular Trade System Image">
+                            <p class="Info">A system is a multiple section and parts that make up a specific flow or function. The triangular trade system is also an example of a system, formed by European colonizers, Slaves, Materials, Goods, Old World, and New World.<br>In the trade route system, goods, materials, people, diseases, animals, and plants were transported along the triangle. Some materials and goods were carried from Europe to Africa, slaves were transferred from Africa to America, and raw materials were moved to Europe from America.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <button class="Button Index" onclick="Show3()">Things spread around the world</button>
+                    <div id="Info3" class="Collapse">
+                        <h3 class="Info">Things spread around the world</h3>
+                        <p class="Info">In the triangular trade system, many things were spread to the New World from the Old World, Old World to the New World.<br>Some of the things spread from the Old World to New World were wheat, sugar, rice, coffee, horses, cows, pigs, sheep, chickens, and diseases such as smallpox and measles.<br>Things spread from the New World to Old World were potatoes, tomatoes, peppers, tobacco and other raw materials.</p>
+                    </div>
+                </li>
+                <li>
+                    <button class="Button Index" onclick="Show4()">Triangular trade conclusion</button>
+                    <div id="Info4" class="Collapse">
+                        <h3 class="Info">Conclusion</h3>
+                        <p class="Info">In conclusion, the triangular trade system was a significant trade route in the 16th century that connected Europe, Africa, and America. It developed the trade of goods, materials, people, diseases, animals, and plants.<br>Lastly, I think this system was fair. It is because I am thinking that the cycle and functionality of the route is well made. However, slavery in current value can be unfair. In terms of development, it helped the advance of America and Old World by spread of materials and people.</p>
+                        <h3 class="Info">Mini Information</h3>
+                        <ol>
+                            <li>
+                                <button class="Button Index" onclick="ShowMini1()">Smallpox and Measles</button>
+                                <div id="MiniInfo1" class="Collapse">
+                                    <h3 class="Info">Smallpox and Measles</h3>
+                                    <p class="Info">Smallpox and measles were two of the most popular diseases brought to the New World in 16th century, and it largely affected the population of indigenous people. Smallpox were very easy to spread and were fatal, causing large decrease of Native Americans. The spread of smallpox and measles is one of the worst consequences of colonization of America. Now, smallpox was eradicated in 1980 by WHO, while measles still exist.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="Button Index" onclick="ShowMini2()">Sugar Profit</button>
+                                <div id="MiniInfo2" class="Collapse">
+                                    <h3 class="Info">Sugar Profit</h3>
+                                    <p class="Info">Sugar was one of the most profitable goods in the triangular trade system. It was produced in America by slaves, and transported to Europe. In Europe, sugar was highly popular which made huge profit for the Europeans, and it was one of the largest reasons for the continuation of the triangular trade.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="Button Index" onclick="ShowMini3()">African Slaves</button>
+                                <div id="MiniInfo3" class="Collapse">
+                                    <h3 class="Info">African Slaves</h3>
+                                    <p class="Info">Triangular trade transported slaves to America which supported the development of the slave trade. They were captured and enslaved in Africa and transported to America, and they were forced to work in plantations and mines.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <div id="Reference">
+            <h3>| References |</h3>
+            <p>(Some contents were from the social studies worksheets)</p>
+            <ol>
+                <li><p class="Info">The Editors of Encyclopaedia Britannica. (2020). Triangular trade | economics | Britannica. In Encyclopædia Britannica. https://www.britannica.com/topic/triangular-trade</p></li>
+                <li><p class="Info">The Triangular Trade. (2019, February 21). American Battlefield Trust. https://www.battlefields.org/learn/articles/triangular-trade</p></li>
+                <li><p class="Info">Fiveable. (2025). Triangular trade. Fiveable. https://fiveable.me/archaeology-of-the-age-of-exploration/unit-6/triangular-trade/study-guide/vJrjU6mxlBdkbqZA</p></li>
+                <li><p class="Info">Packer, E. (2021, September 3). Transatlantic slave trade introduced novel pathogenic viruses in the Americas. ELife. https://elifesciences.org/for-the-press/8f863cb7/transatlantic-slave-trade-introduced-novel-pathogenic-viruses-in-the-americas</p></li>
+                <li><p class="Info">Wikipedia Contributors. (2019, March 19). Triangular trade. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Triangular_trade</p></li>
+            </ol>
+        </div>
     </div>
     <script>
-        function Show1() {
-            const info = document.getElementById("Info1");
-            if (info.style.display === "none") {
-                info.style.display = "block";
-            } else {
-                info.style.display = "none";
-            }
+        function toggleCollapse(id) {
+            const box = document.getElementById(id);
+            box.classList.toggle("open");
         }
-        function Show2() {
-            const info = document.getElementById("Info2");
-            if (info.style.display === "none") {
-                info.style.display = "block";
-            } else {
-                info.style.display = "none";
-            }
-        }
-        function Show3() {
-            const info = document.getElementById("Info3");
-            if (info.style.display === "none") {
-                info.style.display = "block";
-            } else {
-                info.style.display = "none";
-            }
-        }
-        function Show4() {
-            const info = document.getElementById("Info4");
-            if (info.style.display === "none") {
-                info.style.display = "block";
-            } else {
-                info.style.display = "none";
-            }
-        }
+
+        function Show1() { toggleCollapse("Info1"); }
+        function Show2() { toggleCollapse("Info2"); }
+        function Show3() { toggleCollapse("Info3"); }
+        function Show4() { toggleCollapse("Info4"); }
+
+        function ShowMini1() { toggleCollapse("MiniInfo1"); }
+        function ShowMini2() { toggleCollapse("MiniInfo2"); }
+        function ShowMini3() { toggleCollapse("MiniInfo3"); }
+        
         function ShowInformation() {
             const info = document.getElementById("InformationInfo");
             const infoKeys = document.getElementById("InformationInfoKeys");
@@ -251,30 +254,6 @@
             } else {
                 info.style.display = "none";
                 infoKeys.style.display = "none";
-            }
-        }
-        function ShowMini1() {
-            const info = document.getElementById("MiniInfo1");
-            if (info.style.display === "none") {
-                info.style.display = "block";
-            } else {
-                info.style.display = "none";
-            }
-        }
-        function ShowMini2() {
-            const info = document.getElementById("MiniInfo2");
-            if (info.style.display === "none") {
-                info.style.display = "block";
-            } else {
-                info.style.display = "none";
-            }
-        }
-        function ShowMini3() {
-            const info = document.getElementById("MiniInfo3");
-            if (info.style.display === "none") {
-                info.style.display = "block";
-            } else {
-                info.style.display = "none";
             }
         }
         function FontPlus() {
