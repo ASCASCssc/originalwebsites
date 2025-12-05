@@ -53,6 +53,11 @@
         transform: translateY(-2px);
         box-shadow: 0 6px 12px rgba(0,0,0,0.25);
     }
+    .Index {
+        width: 260px;
+        text-align: center;
+        padding-left: 10px;
+    }
     #Appearance {
         padding-left: 20px;
         padding-right: 20px;
@@ -91,12 +96,12 @@
         height: 177px;
         top: 14px;
         right: 14px;
-        background-color: #F8F8F8;
+        background-color: rgba(255, 255, 255, 0.2);
         border-radius: 14px;
         box-shadow: 0 6px 12px rgba(0,0,0,0.25);
     }
     #Fontsizebox.dark-mode {
-        background-color: #55595f;
+        background-color: rgba(0, 0, 0, 0.2);
     }
 </style>
 <body">
@@ -123,6 +128,7 @@
         <li class="Info">1 - Toggle "What is triangular trade?" information</li>
         <li class="Info">2 - Toggle "How was the route like?" information</li>
         <li class="Info">3 - Toggle "Things spread around the world" information</li>
+        <li class="Info">4 - Toggle "Triangular trade conclusion" information</li>
         <li class="Info">A - Toggle appearance</li>
         <li class="Info">G - Toggle Grid</li>
     </ul>
@@ -131,14 +137,14 @@
         <h3>| INDEX |</h3>
         <ol>
             <li>
-                <button class="Button" onclick="Show1()">What is triangular trade?</button>
+                <button class="Button Index" onclick="Show1()">What is triangular trade?</button>
                 <div id="Info1" style="display: none;">
                     <h3 class="Info">What is Triangular Trade?</h3>
                     <p class="Info">The triangular trade system was a triangular trade route used by the Europians in the 16th century. The route was between Europe, Africa and America, which formed a triangle from the top view. The direction was Europe, Africa, America, then back to Europe.</p>
                 </div>
             </li>
             <li>
-                <button class="Button" onclick="Show2()">How was the route like?</button>
+                <button class="Button Index" onclick="Show2()">How was the route like?</button>
                 <div id="Info2" style="display: none;">
                     <h3 class="Info">How was the route like?</h3>
                     <div style="display: flex;">
@@ -148,10 +154,17 @@
                 </div>
             </li>
             <li>
-                <button class="Button" onclick="Show3()">Things spread around the world</button>
+                <button class="Button Index" onclick="Show3()">Things spread around the world</button>
                 <div id="Info3" style="display: none;">
                     <h3 class="Info">Things spread around the world</h3>
                     <p class="Info">In the triangular trade system, many things were spread to the New World from the Old World.<br>Some of the things spread from the Old World were wheat, sugar, rice, coffee, horses, cows, pigs, sheep, chickens, and diseases such as smallpox and measles.<br>Things spread from the New World to Old World were </p>
+                </div>
+            </li>
+            <li>
+                <button class="Button Index" onclick="Show4()">Triangular trade conclusion</button>
+                <div id="Info4" style="display: none;">
+                    <h3 class="Info">Conclusion</h3>
+                    <p class="Info">In conclusion, the triangular trade system was a significant trade route in the 16th century that connected Europe, Africa, and America. It developed the trade of goods, materials, people, diseases, animals, and plants.</p>
                 </div>
             </li>
         </ol>
@@ -182,6 +195,14 @@
         }
         function Show3() {
             const info = document.getElementById("Info3");
+            if (info.style.display === "none") {
+                info.style.display = "block";
+            } else {
+                info.style.display = "none";
+            }
+        }
+        function Show4() {
+            const info = document.getElementById("Info4");
             if (info.style.display === "none") {
                 info.style.display = "block";
             } else {
@@ -262,7 +283,7 @@
                     body.style.backgroundImage = "";
                     buttonGrid.textContent = "GRID";
                 } else {
-                    body.style.backgroundImage = "url(images/Banner4.png)";
+                    body.style.backgroundImage = "url(images/Banner5.jpeg)";
                     buttonGrid.textContent = "BLANK";
                 }
             }
@@ -279,6 +300,9 @@
             }
             if (event.key === "3") {
                 Show3();
+            }
+            if (event.key === "4") {
+                Show4();
             }
             if (event.key.toLowerCase() === "a") {
                 ToggleAppearance();
